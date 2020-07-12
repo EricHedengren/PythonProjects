@@ -1,4 +1,3 @@
-
 ## Message
 Creates and prints a coded message of 5 digit number sequence assigned to each character of the key.
 

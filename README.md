@@ -1,5 +1,5 @@
 # Projects
-VSCode Python Projects
+Python Projects
 
 ## SimpleDecoder
 Takes message and turns characters into other characters assigned with them, then accepts a code to be turned into correct characters.

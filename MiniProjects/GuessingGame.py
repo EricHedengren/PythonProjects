@@ -10,10 +10,11 @@ guess = int(input())
 
 while guess != number:
     if guess > y or guess < x:
-        guess = int(input("Guess is out of range "))
+        print("Guess is out of range.\nGuess again: ",end='')
     elif guess > number:
-        guess = int(input("Guess is too high: "))
+        print("Lower: ",end='')
     elif guess < number:
-        guess = int(input("Guess is too low: "))
+        print("Higher: ",end='')
+    guess = int(input())
 
 print("You won!")

@@ -1,31 +1,51 @@
-import sys
+word = input('Enter a word: ')
 
-word = input("Enter a word: ") # Word can't have repeat letters 
-word.lower()
-lives = int(input("How many lives: "))
-wordList = []
-for i in word:
-    wordList.append(i)
+revealed = ''
+for letter in word:
+    if letter == ' ':
+        revealed += ' '
+    elif letter == "'":
+        revealed += "'"
+    else:
+        revealed += '#'
 
-printer = []
-for i in wordList:
-    printer.append("X")
+lives = int(input('Number of lives: '))
 
-x = input("Guess a letter: ")
-x.lower()
+guesses = []
+while True:
+    print('Previous guesses:',guesses)
+    print(revealed)
+    guess = input('Guess a letter or the whole thing: ')
+    if guess in guesses:
+        print('You already guessed that')
+        continue
+    elif guess == '':
+        print('Actually guess something')
+        continue
+    elif len(guess) > 1:
+        if len(guess) != len(word):
+            print('Incorrect word length')
+            continue
+        elif guess == word:
+            print('You won!\nYou won!\nYou guessed it!')
+            break
+        else:
+            print('Incorrect word')
+            lives -= 1
+            print(lives,'lives left')
 
-for i in range(lives):
-    if x in wordList and "X" in printer:
-        lives += 1
-        printer[wordList.index(x)] = x
-        if "X" not in printer:
-            f = ''
-            for i in printer:
-                f += i
-            print(f)
-            sys.exit("You won")
-    print(printer)
-    x = input("Guess a letter: ")
-    x.lower()
-
-sys.exit("You ran out of lives")
+    elif guess in word:
+        for i, letter in enumerate(word):
+            if letter == guess:
+                revealed = revealed[:i] + letter + revealed[i+1:]
+        print('Right on')
+    else:
+        lives -= 1
+        print(guess,"isn't in the word.",lives,'lives left.')
+    if revealed == word:
+        print('You won!\nYou won!\nWith',lives,'lives left.')
+        break
+    elif lives == 0:
+        print('You ran out of lives. The word was','"'+word+'".')
+        break
+    guesses.append(guess)

@@ -15,11 +15,11 @@ print('\n'*75)
 
 lives = int(input('Number of lives: '))
 
+the_phrase = 'The phrase was "'+word+'".'
 line = '-'*75
 guesses = []
 while True:
-    print('Previous guesses:',guesses)
-    print(revealed)
+    print(revealed,'\nPrevious guesses:',guesses)
     guess = input('Guess a letter or the whole thing: ')
     guess = guess.lower()
     print(line)
@@ -34,7 +34,7 @@ while True:
             print('Incorrect word length')
             continue
         elif guess == word:
-            print('You won!\nYou won!\nYou guessed it! The phrase was','"'+word+'".')
+            print('You won!\nYou guessed the whole thing!\n'+the_phrase)
             break
         elif guess == 'hint':
             print('The hint is','"'+hint+'".')
@@ -53,9 +53,9 @@ while True:
         lives -= 1
         print(guess,"isn't in the word.",lives,'lives left.')
     if revealed == word:
-        print('You won!\nYou won!\nWith',lives,'lives left. The phrase was','"'+word+'".')
+        print('You won!\nWith',lives,'lives left. '+the_phrase)
         break
     elif lives == 0:
-        print('You ran out of lives. The phrase was','"'+word+'".')
+        print('You ran out of lives. '+the_phrase)
         break
     guesses.append(guess)

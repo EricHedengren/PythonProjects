@@ -1,8 +1,10 @@
-import random
+from random import randint
 letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*`~-+=';:/?|><"
 password = ''
 
-for i in range(25):
-    password += letters[random.randint(0,len(letters)-1)]
+length = randint(10,30)
+
+for i in range(length):
+    password += letters[randint(0,len(letters)-1)]
 
 print(password)

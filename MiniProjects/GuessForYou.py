@@ -22,11 +22,11 @@ def run_guesser(min2, max2):
     return count
 
 min1 = 1
-max1 = 1000000
+max1 = 10
 
 num_guess = []
 
-for i in range(1000):
+for i in range(100):
     number = randint(min1, max1)
     num_guess.append(run_guesser(min1, max1+1))
 

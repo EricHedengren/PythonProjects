@@ -3,11 +3,12 @@ import random
 h = ".?! abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 alp = []
-for i in h:
-    alp.append(i)
+for l in h:
+    alp.append(l)
+
 code = []
 for i in range(len(h)):
-    code.append(str(random.randrange(10000,99999)))
+    code.append(str(random.randint(10000,99999)))
 
 message = input("Enter the message: ")
 newMessage = ''
@@ -17,4 +18,4 @@ for i in message:
 p = ''
 for i in code:
     p += i
-print(newMessage, p)
+print(p, newMessage)

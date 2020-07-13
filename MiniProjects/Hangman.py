@@ -11,17 +11,18 @@ for letter in word:
 
 hint = input('Enter a hint: ')
 
-for i in range(10):
-    print()
+print('\n'*75)
 
 lives = int(input('Number of lives: '))
 
+line = '-'*75
 guesses = []
 while True:
     print('Previous guesses:',guesses)
     print(revealed)
     guess = input('Guess a letter or the whole thing: ')
     guess = guess.lower()
+    print(line)
     if guess in guesses:
         print('You already guessed that')
         continue
@@ -36,7 +37,7 @@ while True:
             print('You won!\nYou won!\nYou guessed it! The phrase was','"'+word+'".')
             break
         elif guess == 'hint':
-            print('The hint is',hint)
+            print('The hint is','"'+hint+'".')
             continue
         else:
             print('Incorrect word')

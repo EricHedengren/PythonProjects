@@ -10,6 +10,10 @@ for letter in word:
         revealed += '#'
 
 hint = input('Enter a hint: ')
+
+for i in range(10):
+    print()
+
 lives = int(input('Number of lives: '))
 
 guesses = []
@@ -21,19 +25,19 @@ while True:
     if guess in guesses:
         print('You already guessed that')
         continue
-    elif guess == '.hint.':
-        print(hint)
-        continue
     elif guess == '':
         print('Actually guess something')
         continue
     elif len(guess) > 1:
-        if len(guess) != len(word):
+        if len(guess) != len(word) and guess != 'hint':
             print('Incorrect word length')
             continue
         elif guess == word:
             print('You won!\nYou won!\nYou guessed it! The phrase was','"'+word+'".')
             break
+        elif guess == 'hint':
+            print('The hint is',hint)
+            continue
         else:
             print('Incorrect word')
             lives -= 1

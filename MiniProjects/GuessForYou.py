@@ -26,7 +26,7 @@ max1 = 10
 
 num_guess = []
 
-for i in range(100):
+for i in range(10000):
     number = randint(min1, max1)
     num_guess.append(run_guesser(min1, max1+1))
 

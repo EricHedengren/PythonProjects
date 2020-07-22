@@ -2,12 +2,12 @@ word = input('Enter a word: ')
 word = word.lower()
 
 revealed = ''
-exception_chars = ["'", '.', '?', ' ']
+exception_chars = ["'", '.', '?', ' ', ',']
 for letter in word:
     if letter in exception_chars:
         revealed += letter
     else:
-        revealed += '#'
+        revealed += '□'
 
 hint = input('Enter a hint: ')
 

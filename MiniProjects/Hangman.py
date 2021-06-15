@@ -40,9 +40,8 @@ while True:
             print('The hint is','"'+hint+'".')
             continue
         else:
-            print('Incorrect word')
             lives -= 1
-            print(lives,'lives left')
+            print('Incorrect word.',lives,'lives left.')
 
     elif guess in word:
         for i, letter in enumerate(word):
